@@ -13,7 +13,7 @@ app.post("/books", async (req, res) => {
     const book = await Book.create(req.body);
     res.status(201).json(book);
   } catch (err) {
-    res.status(501).json(err);
+    res.status(500).json(err);
   }
 });
 
@@ -23,7 +23,7 @@ app.get("/getBooks/", async (req, res) => {
     const books = await Book.find({});
     res.status(200).json(books);
   } catch (err) {
-    res.status(501).json(err);
+    res.status(500).json(err);
   }
 });
 
@@ -33,7 +33,7 @@ app.get("/getBook/:id", async (req, res) => {
     const book = await Book.findOne({ _id: req.params.id });
     res.status(200).json(book);
   } catch (err) {
-    res.status(501).json(err);
+    res.status(500).json(err);
   }
 });
 //Update Single Book
@@ -42,7 +42,7 @@ app.put("/updateBook/:id", async (req, res) => {
     const book = await Book.updateOne({ _id: req.params.id }, req.body);
     res.status(200).json(book);
   } catch (err) {
-    res.status(501).json(err);
+    res.status(500).json(err);
   }
 });
 
@@ -52,7 +52,7 @@ app.delete("/deleteBook/:id", async (req, res) => {
     const book = await Book.deleteOne({ _id: req.params.id });
     res.status(200).json(book);
   } catch (err) {
-    res.status(501).json(err);
+    res.status(500).json(err);
   }
 });
 
